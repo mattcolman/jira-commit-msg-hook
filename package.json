@@ -1,0 +1,22 @@
+{
+  "name": "jira-commit-msg-hook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattcolman/jira-commit-msg-hook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattcolman/jira-commit-msg-hook/issues"
+  },
+  "homepage": "https://github.com/mattcolman/jira-commit-msg-hook#readme",
+  "devDependencies": {
+    "shelljs": "^0.8.4"
+  }
+}
