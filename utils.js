@@ -3,7 +3,10 @@ const findIssueKeysFromBranchName = (branchName) => {
 };
 
 const addIssueKeysToMessage = (issueKeys, message) => {
-  return `${issueKeys.join("-")}: ${message}`;
+  if (issueKeys) {
+    return `${issueKeys.join(" ")}: ${message}`;
+  }
+  return message;
 };
 
 // const addIssueKeysFromBranchNameToMessage = (branchName, message) => {
