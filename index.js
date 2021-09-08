@@ -2,6 +2,10 @@
 // const chalk = require("chalk");
 const shell = require("shelljs");
 const fs = require("fs");
+const {
+  findIssueKeysFromBranchName,
+  addIssueKeysToMessage,
+} = require("./utils");
 
 console.log("node js here");
 
@@ -23,16 +27,14 @@ console.log("message", message);
 
 const branchName = exec("git rev-parse --abbrev-ref HEAD", { trim: true });
 
-const issueKeys = branchName.match(
-  /((?!([A-Z0-9a-z]{1,10})-?$)[A-Z]{1}[A-Z0-9]+-\d+)/g
-);
+const issueKeys = findIssueKeysFromBranchName(branchName);
 
 // TODO
 // - what about messages that have already been tagged?
 // - what about merge commits? see https://gist.github.com/aquiseb/6cd2f0e311ee5f54c5b0c8db39f606b4
 // - write tests
 if (issueKeys) {
-  const newMessage = `${issueKeys.join("-")}-${message}`;
+  const newMessage = addIssueKeysToMessage(issueKeys, message);
   console.log("new message is", newMessage);
 
   fs.writeFileSync(process.argv[2], newMessage);

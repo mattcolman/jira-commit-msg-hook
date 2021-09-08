@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mattcolman/jira-commit-msg-hook#readme",
   "devDependencies": {
+    "jest": "^27.1.0",
     "shelljs": "^0.8.4"
   }
 }
