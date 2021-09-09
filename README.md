@@ -1,5 +1,10 @@
 # Jira commit msg hook
 
+## OH MY
+After almost finishing this package I found https://github.com/bk201-/jira-prepare-commit-msg which works perfectly, so just use that!!
+
+## Why?
+
 Installing Jira commit msg hook into your project will mean everyone contributing code to your project will automatically tag each commit with
 it's associated issue key based off the branch name. 
 
@@ -7,7 +12,7 @@ So if your branch name is `feature/TEST-123-new-feature`, then when you commit w
 
 Why would you want this? Well, Jira has many hidden goodies, and this is one of them! If you include an issue key in your commit messages AND you have your deployment pipeline connected to Jira this will unlock many bonus features, such as the Deployments view, Cycle time report, Deployment frequency report and I've heard many more features are coming soon!
 
-## Quick install
+## Quick install with npm@^7
 Quick install is for people that hate reading and just want the thing to work.
 `npm install husky --save-dev && npx husky install && npm set-script prepare "husky install" && npx husky add .husky/commit-msg 'npx --no-install jira-commit-msg-hook "$1"'`
 
@@ -17,13 +22,21 @@ Jira commit msg hook uses Husky to easily install git hooks. If your project doe
 ### Install husky
 Incase these docs come out of date please read the source at https://typicode.github.io/husky/#/?id=automatic-recommended
 #### via npm
-`npm install husky --save-dev && npx husky install && npm set-script prepare "husky install"`
+`npm install husky --save-dev && npx husky install`
 
 #### via yarn
 `yarn add husky --dev && npx husky install && npm set-script prepare "husky install"`
 
 #### via yarn 2
 See https://typicode.github.io/husky/#/?id=yarn-2
+
+### Add prepare script
+
+#### via npm @^7
+`npm set-script prepare "husky install"`
+
+#### manual
+Add prepare script to package.json `"husky install"`
 
 ### Install commit-msg hook
 `npx husky add .husky/commit-msg 'npx --no-install jira-commit-msg-hook "$1"'`
